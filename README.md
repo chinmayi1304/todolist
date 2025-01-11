@@ -22,12 +22,22 @@ nodemon app.js
 
 <br>
 <h2>Firebase hosting</h2><br>
+1. Install Firebase CLI <br>
 
 ```bash
 npm install -g firebase-tools
+```
+<br>
+2. Login to Firebase <br>
+
+```bash
 
 firebase login
+```
+<br>
+3. Navigate to your frontend project directory: <br>
 
+```bash
 cd your-frontend-project
 
 firebase init hosting
