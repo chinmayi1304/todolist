@@ -17,6 +17,24 @@ npm install
 nodemon app.js
 
 ```
+
 - Open `http://localhost:4000` with your browser to see the application.
 
 <br>
+<h2>Firebase hosting</h2><br>
+
+```bash
+npm install -g firebase-tools
+
+firebase login
+
+cd your-frontend-project
+
+firebase init hosting
+
+firebase serve
+
+firebase deploy
+
+```
+
