@@ -37,4 +37,64 @@ firebase serve
 firebase deploy
 
 ```
+<br>
+<h2>EC2 Hosting</h2><br>
+1. Launch an EC2 Instance <br>
+Log in to the AWS Management Console.
+Navigate to EC2 and click Launch Instance.
+Configure the instance:
+<br>
+-Choose an Ubuntu Server or any preferred OS AMI.<br>
+-Select an instance type (e.g., t2.micro for free tier).
+Configure security groups to allow:
+<br>
+-Port 22 (SSH) for access.<br>
+-Port 80 (HTTP) for web traffic.<br>
+Additional ports (e.g., 3000 for Node.js, 5000 for Flask) as needed.
+Launch the instance and download the key pair file (.pem).
+<br><br>
+2. Connect to the Instance via SSH <br>
+Open Windows Terminal or PowerShell. 
+Navigate to the folder with your .pem file.<br>
+Run the SSH command:<br>
 
+```bash
+
+ssh -i "your-key-file.pem" ubuntu@<Public-IP-of-EC2>
+
+```
+<br>
+3. Set Up the Server Environment <br>
+Update and install required packages: <br>
+
+```bash
+
+ssh -i "your-key-file.pem" ubuntu@<Public-IP-of-EC2>
+
+```
+<br>
+4. Deploy the Backend Application <br>
+Copy your backend files to the EC2 instance using SCP or Git:<br>
+To upload files: <br>
+
+```bash
+
+scp -i "your-key-file.pem" -r /path/to/backend ubuntu@<Public-IP-of-EC2>:/home/ubuntu/
+
+```
+<br>
+Navigate to the backend directory and install dependencies:<br>
+
+```bash
+
+npm install
+
+```
+<br>
+Start the application: <br>
+
+```bash
+
+node app.js
+
+```
