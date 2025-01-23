@@ -108,3 +108,38 @@ Start the application: <br>
 node app.js
 
 ```
+<br>
+5. Set Up Caddy for SSL and Reverse Proxy <br>
+Install Caddy <br>
+
+```bash
+sudo apt update
+sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-archive-keyring.gpg
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
+sudo apt update
+sudo apt install caddy
+```
+<br>
+
+```bash
+cd /etc/caddy
+```
+<br>
+Edit the Caddyfile: <br>
+
+```bash
+sudo nano /etc/caddy/Caddyfile
+```
+<br>
+
+```bash
+your-domain.com {
+    reverse_proxy localhost:<your-backend-port>
+}
+```
+<br>
+
+```bash
+sudo systemctl restart caddy
+```
